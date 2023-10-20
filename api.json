@@ -1,0 +1,14 @@
+{
+    "code" : 200,
+    "status" : "OK",
+    "data" : [
+        {
+            "nama" : "Clariva",
+            "tanggal" : 20
+        },
+        {
+            "nama" : "Clariva",
+            "tanggal" : 20
+        }
+    ]
+}

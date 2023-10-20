@@ -2,8 +2,10 @@
 namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\ProductModel;
+use CodeIgniter\API\ResponseTrait;
 
 class ProductController extends BaseController {
+    use ResponseTrait;
 
     private $product;
 
@@ -42,6 +44,39 @@ class ProductController extends BaseController {
 
         return view('product', $data);
     }
+
+    public function readProductApi(){
+        $product = $this->product->findAll();
+
+        return $this->respond([
+            'code' => 200,
+            'status' => 'OK',
+            'data' => $product
+            ]
+            );
+    }
+
+    public function getProductApi($id){
+        $product = $this->product->where('id', $id)->first();
+
+        if(!$product){
+            $this->response->setStatusCode(404);
+            return $this->response->setJSON([
+                'code' => 404,
+                'status' => 'NOT FOUND',
+                'data' => "ptoduct not found"
+            ]
+            );
+        }
+
+        return $this->respond([
+            'code' => 200,
+            'status' => 'OK',
+            'data' => $product
+            ]
+            );
+    }
+
     public function getProduct($id){
         $product = $this->product->where('id', $id)->first();
         $data = [
