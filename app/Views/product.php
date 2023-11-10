@@ -22,13 +22,13 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($data as $p): ?>
+                <?php foreach ($data as $index => $p): ?>
                 <tr>
-                    <td><?=$p->id?></td>
+                    <td><?=$index +1?></td>
                     <td><?=$p->nama_product?></td>
                     <td><?=$p->description?></td>
                     <td>
-                        <a href="<?=base_url('edit-product/' . $p->id)?>" class="btn btn-primary">Edit</a>
+                        <a href="<?=base_url('edit-products/' . $p->id)?>" class="btn btn-primary">Edit</a>
                         <a href="<?=base_url('delete-product/'.$p->id)?>" class="btn btn-danger">Hapus</a>
                     </td>
                 </tr>
