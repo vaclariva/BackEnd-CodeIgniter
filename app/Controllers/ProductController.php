@@ -11,6 +11,12 @@ class ProductController extends BaseController {
 
     public function __construct(){
         $this->product = new ProductModel();
+
+
+
+
+
+        
     }
     
     public function insertProduct(){
